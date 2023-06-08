@@ -5,7 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    react({ babel: { plugins: [["babel-plugin-styled-components"]] } }),
+    react({ babel: { plugins: [["@emotion"]] } }),
   ],
   server: {
     host: true,

@@ -1,25 +1,12 @@
-import { Button } from "@example/ui";
-import styled from "styled-components";
-
+import { Box, Button } from '@mui/material';
 import { trpc } from "@trpc";
 
 export const Home = () => {
   const { data } = trpc.user.useQuery();
   return (
-    <HomeContainer>
-      {`Role: ${data?.role}`}
-      <Button />
-    </HomeContainer>
+    <Box>
+      {/* {`Role: ${data?.role}`} */}
+      <Button variant="outlined" color="secondary" size="small"> heelo </Button>
+    </Box>
   );
 };
-
-const HomeContainer = styled.div`
-  height: 100%;
-  background-color: #333;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  grid-gap: 10px;
-`;

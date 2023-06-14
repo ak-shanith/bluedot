@@ -3,10 +3,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [
-    tsconfigPaths(),
-    react({ babel: { plugins: [["@emotion"]] } }),
-  ],
+  plugins: [tsconfigPaths(), react({ babel: { plugins: [["@emotion"]] } })],
   server: {
     host: true,
     port: 3000,

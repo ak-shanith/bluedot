@@ -17,11 +17,11 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@trpc": ["trpc"],
+      "@trpc": ["lib/trpc"],
       "trpc": ["../../server/trpc"],
       "trpc/trpc": ["../../server/trpc/trpc"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "src/index.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

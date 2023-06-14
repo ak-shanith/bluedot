@@ -8,8 +8,6 @@ export const TitleBar = () => {
       position="fixed"
       color="transparent"
       sx={{
-        width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
         color: "text.primary",
         backdropFilter: "blur(10px)",
         elevation: 0,

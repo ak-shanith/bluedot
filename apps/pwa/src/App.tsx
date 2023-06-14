@@ -8,8 +8,8 @@ function App() {
   return (
     <ThemeProvider>
       <TrpcProvider>
-        <Layout />
         <BrowserRouter>
+          <Layout />
           <AppRoutes />
         </BrowserRouter>
       </TrpcProvider>

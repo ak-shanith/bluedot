@@ -5,7 +5,7 @@ export const theme = createTheme({
   palette: {
     background: {
       default: colors.common.white,
-      paper: "#f4f4f5",
+      paper: "#E9E9E9",
     },
     primary: {
       main: "#4127e8",
@@ -24,16 +24,17 @@ export const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          scrollbarColor: "#6b6b6b #4127e8",
+          scrollbarColor: "#6b6b6b #E9E9E9",
           "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
-            backgroundColor: "#4127e8",
-            width: "0.9rem",
+            backgroundColor: "transparent",
+            width: "0.5rem",
+            borderRadius: 8,
           },
           "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
             borderRadius: 8,
             backgroundColor: "#6b6b6b",
             minHeight: 24,
-            border: "3px solid #4127e8",
+            border: "none",
           },
           "&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus": {
             backgroundColor: "#959595",
@@ -45,7 +46,7 @@ export const theme = createTheme({
             backgroundColor: "#959595",
           },
           "&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner": {
-            backgroundColor: "#4127e8",
+            backgroundColor: "#E9E9E9",
           },
         },
       },

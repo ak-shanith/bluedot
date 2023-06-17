@@ -19,8 +19,6 @@ import {
 import { grey } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
 
-const drawerWidth = 300;
-
 export const SideBar = () => {
   const navigate = useNavigate();
 
@@ -43,7 +41,7 @@ export const SideBar = () => {
     {
       text: "Workflows",
       icon: <AccountTree />,
-      onClick: () => navigate("/workflows"),
+      onClick: () => navigate("/users"),
     },
   ];
   const list2 = [
@@ -64,25 +62,43 @@ export const SideBar = () => {
       variant="permanent"
       anchor="left"
       sx={{
-        width: drawerWidth,
+        m: "8px",
+        borderRadius: "8px",
+        width: "calc(100vw * 0.2)",
+        height: "calc(100vh - 16px)",
+        minWidth: "300px",
+        maxWidth: "420px",
         flexShrink: 0,
+        border: "none",
         [`& .MuiDrawer-paper`]: {
-          width: drawerWidth,
+          m: "8px",
+          borderRadius: "8px",
+          width: "calc(100vw * 0.2)",
+          height: "calc(100vh - 16px)",
+          minWidth: "300px",
+          maxWidth: "420px",
           boxSizing: "border-box",
-          backgroundColor: "transparent",
+          backgroundColor: "background.paper",
+          border: "none",
         },
       }}
     >
       <Box
         sx={{
-          pt: 8,
           color: "text.primary",
+          m: "8px",
         }}
       >
         <List>
           {list1.map((itm, index) => (
             <ListItem key={itm.text} onClick={itm.onClick} disablePadding>
-              <ListItemButton>
+              <ListItemButton
+                sx={{
+                  "&:hover": {
+                    borderRadius: "8px",
+                  },
+                }}
+              >
                 <ListItemIcon
                   sx={{
                     color: grey[800],
@@ -95,11 +111,17 @@ export const SideBar = () => {
             </ListItem>
           ))}
         </List>
-        <Divider />
+        <Divider sx={{ m: "12px" }} />
         <List>
           {list2.map((itm, index) => (
             <ListItem key={itm.text} onClick={itm.onClick} disablePadding>
-              <ListItemButton>
+              <ListItemButton
+                sx={{
+                  "&:hover": {
+                    borderRadius: "8px",
+                  },
+                }}
+              >
                 <ListItemIcon
                   sx={{
                     color: grey[800],

@@ -1,4 +1,9 @@
-import { Box, Button, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography
+} from "@mui/material";
+
 
 import { t } from "@trpc";
 
@@ -7,16 +12,20 @@ export const HomePage = () => {
   return (
     <Box
       sx={{
+        m: "8px",
+        ml: "0px",
         display: "flex",
+        borderRadius: "8px",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
-        minHeight: "100vh",
-        width: "100%",
-        backgroundColor: "primary.main",
-        pt: 8,
+        height: "calc(100vh - 16px)",
+        width: "100vw",
+        backgroundColor: "background.paper",
+        overflow: "hidden",
+        overflowY: "scroll",
+        // background: 'linear-gradient(to bottom, #282C34, transparent)'
       }}
-    >
+    > 
       <Typography variant="h1">Home</Typography>
       <Button variant="outlined" color="secondary" size="small">
         OK

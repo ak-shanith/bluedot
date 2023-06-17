@@ -1,9 +1,27 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import { VitePWA } from "vite-plugin-pwa";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [tsconfigPaths(), react({ babel: { plugins: [["@emotion"]] } })],
+  plugins: [
+    tsconfigPaths(),
+    react({ babel: { plugins: [["@emotion"]] } }),
+    VitePWA({
+      strategies: "injectManifest",
+      injectManifest: {
+        swSrc: "public/sw.js",
+        swDest: "dist/sw.js",
+        globDirectory: "dist",
+        globPatterns: ["**/*.{html,js,css,json, png}"],
+      },
+      injectRegister: false,
+      manifest: false,
+      devOptions: {
+        enabled: true,
+      },
+    }),
+  ],
   server: {
     host: true,
     port: 3000,

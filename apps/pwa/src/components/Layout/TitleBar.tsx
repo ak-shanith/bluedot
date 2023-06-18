@@ -1,11 +1,35 @@
 import { More, Notifications } from "@mui/icons-material";
-import { AppBar, Avatar, Badge, Box, IconButton, Toolbar } from "@mui/material";
+import {
+  AppBar,
+  Avatar,
+  Badge,
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+} from "@mui/material";
 
-import UserAvatar from "../../assets/images/user-avatar.jpg";
-
-const drawerWidth = 300;
+import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+import UserAvatar from "../../assets/images/user-avatar.png";
 
 export const TitleBar = () => {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const { logout } = useAuth0();
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <AppBar
       position="fixed"
@@ -44,6 +68,7 @@ export const TitleBar = () => {
             aria-haspopup="true"
             // onClick={handleProfileMenuOpen}
             color="inherit"
+            onClick={handleClick}
           >
             <Avatar alt="Blue Dot" src={UserAvatar} />
           </IconButton>
@@ -60,6 +85,17 @@ export const TitleBar = () => {
             <More />
           </IconButton>
         </Box>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+        >
+          <MenuItem onClick={handleLogout}>Logout</MenuItem>
+        </Menu>
       </Toolbar>
     </AppBar>
   );

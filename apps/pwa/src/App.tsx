@@ -1,20 +1,23 @@
-import { Layout } from "components";
-import { ThemeProvider, TrpcProvider } from "providers";
-import { BrowserRouter } from "react-router-dom";
-
+import { useAuth0 } from "@auth0/auth0-react";
+import { Layout, PageLoader } from "components";
 import { AppRoutes } from "routes";
 
-function App() {
-  return (
-    <ThemeProvider>
-      <TrpcProvider>
-        <BrowserRouter>
-          <Layout />
-          <AppRoutes />
-        </BrowserRouter>
-      </TrpcProvider>
-    </ThemeProvider>
-  );
-}
+export default function App() {
+  const { loginWithRedirect, isLoading, isAuthenticated } = useAuth0();
 
-export default App;
+  if (isLoading) {
+    return <PageLoader />;
+  }
+
+  if (isAuthenticated) {
+    return (
+      <>
+        <Layout />
+        <AppRoutes />
+      </>
+    );
+  } else {
+    loginWithRedirect();
+    return null;
+  }
+}

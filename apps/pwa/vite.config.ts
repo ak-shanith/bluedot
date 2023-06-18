@@ -22,6 +22,7 @@ export default defineConfig({
       },
     }),
   ],
+  envPrefix: "REACT_APP_",
   server: {
     host: true,
     port: 3000,

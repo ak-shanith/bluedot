@@ -14,6 +14,7 @@ export const HomePage = () => {
       sx={{
         m: "8px",
         ml: "0px",
+        pt: "42px",
         display: "flex",
         borderRadius: "8px",
         flexDirection: "column",
